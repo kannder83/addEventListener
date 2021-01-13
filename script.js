@@ -5,6 +5,10 @@ const darClick = document
   .getElementById("myBtn")
   .addEventListener("click", cambiarColorDeFondo);
 
+const generarNumeroAleatorio = document
+  .getElementById("btnToRandom")
+  .addEventListener("click", numeroAleatorio);
+
 function cambiarColorDeFondo() {
   cuantasVecesDioClick++;
   switch (contadorDeClick) {
@@ -25,4 +29,12 @@ function cambiarColorDeFondo() {
       break;
   }
   document.getElementById("muestraContador").innerHTML = cuantasVecesDioClick;
+}
+
+//Genera Numeros aleatorios que van desde 0 a NUMERO_MAXIMO.
+function numeroAleatorio() {
+  const NUMERO_MAXIMO = 5;
+  document.getElementById("muestraNumeroAleatorio").innerHTML = Math.floor(
+    Math.random() * NUMERO_MAXIMO
+  );
 }
