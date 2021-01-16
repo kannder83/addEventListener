@@ -1,5 +1,7 @@
 let contadorDeClick = 0;
 let cuantasVecesDioClick = 0;
+let btnSuma = `realizar-suma`;
+let btnResta = `realizar-resta`;
 
 const darClick = document
   .getElementById("myBtn")
@@ -8,6 +10,14 @@ const darClick = document
 const generarNumeroAleatorio = document
   .getElementById("btnToRandom")
   .addEventListener("click", numeroAleatorio);
+
+const realizarOperacionSuma = document
+  .getElementById(btnSuma)
+  .addEventListener("click", operacionMatematicaSuma);
+
+const realizarOperacionResta = document
+  .getElementById(btnResta)
+  .addEventListener("click", operacionMatematicaResta);
 
 function cambiarColorDeFondo() {
   cuantasVecesDioClick++;
@@ -37,4 +47,22 @@ function numeroAleatorio() {
   document.getElementById("muestraNumeroAleatorio").innerHTML = Math.floor(
     Math.random() * NUMERO_MAXIMO
   );
+}
+
+//Realizar operación entre los datos que se tiene en los input de text.
+
+function operacionMatematicaSuma() {
+  let primerDatoDeLaOperacion = document.getElementById("primer-valor").value;
+  let sedungoDatoDeLaOperacion = document.getElementById("segundo-valor").value;
+  let resultadoOperacion =
+    Number(primerDatoDeLaOperacion) + Number(sedungoDatoDeLaOperacion);
+  document.getElementById("resultado-operacion").innerHTML = resultadoOperacion;
+}
+
+function operacionMatematicaResta() {
+  let primerDatoDeLaOperacion = document.getElementById("primer-valor").value;
+  let sedungoDatoDeLaOperacion = document.getElementById("segundo-valor").value;
+  let resultadoOperacion =
+    Number(primerDatoDeLaOperacion) - Number(sedungoDatoDeLaOperacion);
+  document.getElementById("resultado-operacion").innerHTML = resultadoOperacion;
 }
